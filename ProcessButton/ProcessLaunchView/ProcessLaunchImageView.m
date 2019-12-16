@@ -24,7 +24,7 @@
 @implementation ProcessLaunchImageView
 
 
-+(instancetype)initShareView:(CGRect)bounds bgImageName:(NSString *)imageName ShowType:(TitleShowtype)showType Time:(CGFloat)time ResultBlock:(ResultProgressBlock)block{
++ (instancetype)initShareView:(CGRect)bounds bgImageName:(NSString *)imageName ShowType:(TitleShowtype)showType Time:(CGFloat)time ResultBlock:(ResultProgressBlock)block {
     ProcessLaunchImageView *View = nil;
     if (!View) {
         View = [[ProcessLaunchImageView alloc]initWithFrame:bounds bgName:imageName ShowType:showType Time:time];
@@ -32,7 +32,7 @@
     }
     return View;
 }
--(instancetype)initWithFrame:(CGRect)frame bgName:(NSString *)bgname ShowType:(TitleShowtype)showType Time:(CGFloat)time{
+- (instancetype)initWithFrame:(CGRect)frame bgName:(NSString *)bgname ShowType:(TitleShowtype)showType Time:(CGFloat)time {
     if (self = [super initWithFrame:frame]) {
         
         //**创建背景ImageView**//
@@ -51,7 +51,7 @@
 /**
  *  设置广告图片
  **/
--(UIImageView *)bgImageView{
+- (UIImageView *)bgImageView {
     if (!_bgImageView) {
         _bgImageView = [[UIImageView alloc]initWithFrame:self.bounds];
         _bgImageView.userInteractionEnabled = YES;
@@ -63,7 +63,7 @@
 /**
  *  ImageView上添加一个点击事件
  **/
--(void)ImageViewTapClick{
+- (void)ImageViewTapClick {
     if (self.block) {
         self.block();
     }
@@ -71,7 +71,7 @@
 /**
  *  创建进度Button
  **/
--(ProcessButton *)processButton{
+- (ProcessButton *)processButton {
     if (!_processButton) {
         _processButton = [[ProcessButton alloc]initWithFrame:CGRectMake(self.bounds.size.width- 60, 20, 30, 30)];
         _processButton.titleLabel.font = [UIFont systemFontOfSize:12];
@@ -88,7 +88,7 @@
 /**
  *  Button点击事件
  **/
--(void)ButtonClick{
+- (void)ButtonClick {
     [self dismiss];
     if (_timer != nil) {
         dispatch_source_cancel(_timer);
@@ -97,7 +97,7 @@
 /**
  *  设置Button显示Title
  */
--(void)setButtonTitle:(TitleShowtype)type Time:(CGFloat)time{
+- (void)setButtonTitle:(TitleShowtype)type Time:(CGFloat)time {
     if (type == ButtonTitleJumpShowType) {
         //表示用户设置的是跳过
         [self.processButton setTitle:@"跳过" forState:UIControlStateNormal];
@@ -132,7 +132,7 @@
 /**
  *  移除View动画
  **/
--(void)dismiss{
+- (void)dismiss {
     
     self.processButton.hidden = YES;
     self.transform = CGAffineTransformMakeScale(1, 1);

@@ -30,6 +30,7 @@
 
 -(instancetype)initWithFrame:(CGRect)frame;
 
+// 开始动画
 - (void)startAnimationDuration:(CGFloat)duration;
 
 @end

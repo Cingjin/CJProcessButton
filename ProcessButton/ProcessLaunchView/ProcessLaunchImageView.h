@@ -28,7 +28,7 @@ typedef NS_ENUM(NSInteger,TitleShowtype){
  *  @param block            广告ImageView点击Block 在里面执行你的操作
  *
  */
-+(instancetype)initShareView:(CGRect)bounds
++ (instancetype)initShareView:(CGRect)bounds
                  bgImageName:(NSString *)imageName
                     ShowType:(TitleShowtype)showType
                         Time:(CGFloat)time

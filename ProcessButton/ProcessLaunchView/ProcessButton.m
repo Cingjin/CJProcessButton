@@ -28,7 +28,7 @@
 
 @implementation ProcessButton
 
--(instancetype)initWithFrame:(CGRect)frame{
+- (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self.layer addSublayer:self.trackLayer];
     }
@@ -36,8 +36,7 @@
 }
 
 
-- (UIBezierPath *)bezierPath
-{
+- (UIBezierPath *)bezierPath {
     if (!_bezierPath) {
         
         CGFloat width = CGRectGetWidth(self.frame)/2.0f;
@@ -53,7 +52,8 @@
     }
     return _bezierPath;
 }
--(CAShapeLayer *)trackLayer{
+
+- (CAShapeLayer *)trackLayer {
     
     if (!_trackLayer) {
         _trackLayer = [CAShapeLayer layer];
@@ -67,7 +67,7 @@
     }
     return _trackLayer;
 }
--(CAShapeLayer *)processLayer{
+- (CAShapeLayer *)processLayer {
     if (!_processLayer) {
         _processLayer = [CAShapeLayer layer];
         _processLayer.frame = self.bounds;
@@ -89,14 +89,14 @@
     return _processLayer;
 }
 
--(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag {
     if (flag) {
         if (self.Block) {
             self.Block();
         }
     }
 }
-- (void)startAnimationDuration:(CGFloat)duration{
+- (void)startAnimationDuration:(CGFloat)duration {
     self.animationtime = duration;
     [self.layer addSublayer:self.processLayer];
 }
