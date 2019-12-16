@@ -1,3 +1,3 @@
 # CJProcessButton
 
-App启动开屏广告
+类似App启动开屏广告
